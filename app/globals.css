@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* AgriLink design tokens */
+  --agri-green: #15803d;
+  --agri-green-dark: #166534;
+  --agri-green-soft: #dcfce7;
+  --agri-navy: #0f172a;
+  --agri-slate: #1e293b;
+  --agri-blue: #2563eb;
+  --agri-bg: #f8fafc;
+  --agri-border: #e2e8f0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-agri-green: var(--agri-green);
+  --color-agri-green-dark: var(--agri-green-dark);
+  --color-agri-green-soft: var(--agri-green-soft);
+  --color-agri-navy: var(--agri-navy);
+  --color-agri-slate: var(--agri-slate);
+  --color-agri-blue: var(--agri-blue);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--agri-bg);
+  color: var(--agri-navy);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep Ant Design and Tailwind from fighting over base button styles. */
+.ant-btn {
+  box-shadow: none;
+}
+
+/* Thin, consistent scrollbars for the app shell. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.agri-gradient {
+  background: linear-gradient(135deg, #166534 0%, #15803d 45%, #22c55e 100%);
+}
+
+.agri-card-shadow {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.04);
 }
